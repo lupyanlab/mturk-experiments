@@ -1,0 +1,20 @@
+<p>You will be given a code when you complete answering the questions below. Please type it into the box at the bottom</p>
+
+<script type='text/javascript'>
+var qualtricsUrl = "YOUR_FULL_QUALTRICS_URL_HERE";
+
+function getUrlVars() {
+  var urlVars = {};
+  window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+      function(m, key, value) { urlVars[key] = value; });
+  return urlVars;
+}
+
+var urlVars = getUrlVars();
+
+qualtricsUrl = qualtricsUrl + "?workerId=" + urlVars["workerId"] + "&assignmentId=" + urlVars["assignmentId"] + "&hitId=" + urlVars["hitId"];
+
+document.write('<a target="_blank" href=' + qualtricsUrl + '>Click here to take the survey.</a>');
+</script>
+
+<p>Completion code:&nbsp;<input type="text" name="Q2" id="Q2" size="20" /></p>
