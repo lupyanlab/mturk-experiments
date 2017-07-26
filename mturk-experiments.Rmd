@@ -6,10 +6,12 @@ output:
     pandoc_args: [
       "-V", "fontsize=10"
     ]
+  md_document:
+    variant: markdown_github
 ---
 
 ```{r config, include=FALSE}
-knitr::opts_chunk$set(echo=FALSE)
+knitr::opts_chunk$set(echo=FALSE, fig.path="figs/")
 ```
 
 # So you want to collect some data with MTurk workers?
@@ -22,7 +24,7 @@ knitr::opts_chunk$set(echo=FALSE)
 
 # Worker flow
 
-```{r engine="dot", fig.width=3}
+```{r worker-flow, engine="dot", fig.width=3}
 digraph {
   node[shape=none fontname=Helvetica];
   edge[arrowhead="vee" fontname=Helvetica]
@@ -79,7 +81,7 @@ fJYYDeTrTrvRekLuhNCL
 
 # Experimenter flow
 
-```{r engine="dot", fig.width=3}
+```{r experimenter-flow, engine="dot", fig.width=3}
 digraph {
   node[shape=none fontname=Helvetica];
   edge[arrowhead="vee" fontname=Helvetica]
@@ -111,7 +113,7 @@ digraph {
 
 # Problem: Linking data and completion codes
 
-```{r engine="dot", fig.width=3}
+```{r linking-data, engine="dot", fig.width=3}
 digraph {
   node[shape=none fontname=Helvetica];
   edge[arrowhead="vee" fontname=Helvetica]
@@ -135,8 +137,8 @@ digraph {
 
 # Steps to adding workerId to the Qualtrics URL
 
-- **Go to requester.wisc.edu**, find or create the HIT, and insert JavaScript code that fetches the current worker's ID and appends it to the Qualtrics survey URL.
-- **Go to qualtrics.com**, and configure the Qualtrics survey to fetch the workerId from the URL and add it to the data.
+- **Go to requester.mturk.edu**, find or create the HIT, and insert JavaScript code that fetches the current worker's ID and appends it to the Qualtrics survey URL.
+- **Go to Qualtrics via survey.wisc.edu**, and configure the Qualtrics survey to fetch the workerId from the URL and add it to the data.
 
 ![](img/embedded-data-for-participant-vars.png)
 
@@ -172,7 +174,7 @@ Share a "default-lab-hit-description.html" file that can be copied and pasted in
 
 # TurkGate
 
-```{r engine="dot", fig.width=3}
+```{r turk-gate, engine="dot", fig.width=3}
 digraph {
   node[shape=none fontname=Helvetica];
   edge[arrowhead="vee" fontname=Helvetica]
